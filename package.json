@@ -51,7 +51,9 @@
   "engines": {
     "node": ">=8.9"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
   "devDependencies": {
     "ava": "^1.0.0-beta.5.1",
     "codecov": "^3.0.2",
