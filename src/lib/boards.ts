@@ -60,21 +60,21 @@ export class BoardsBoard extends Board implements BoardInfo {
 }
 
 export const getBoards = async () => {
-  try {
-    const {
-      data: { boards: boardsRaw }
-    } = await chanAxios.get<BoardsResponse>('boards.json');
+  // try {
+  const {
+    data: { boards: boardsRaw }
+  } = await chanAxios.get<BoardsResponse>('boards.json');
 
-    const boards = new Map<string, BoardsBoard>();
+  const boards = new Map<string, BoardsBoard>();
 
-    boardsRaw.forEach(boardRaw => {
-      boards.set(boardRaw.board, new BoardsBoard(boardRaw));
-    });
+  boardsRaw.forEach(boardRaw => {
+    boards.set(boardRaw.board, new BoardsBoard(boardRaw));
+  });
 
-    return boards;
-  } catch (err) {
-    throw err;
-  }
+  return boards;
+  // } catch (err) {
+  //   throw err;
+  // }
 };
 
 //
