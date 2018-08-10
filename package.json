@@ -1,5 +1,5 @@
 {
-  "name": "4chanapi",
+  "name": "chanapi-js",
   "version": "1.0.1",
   "description": "Wrapper for 4chan read-only API",
   "main": "build/main/index.js",
