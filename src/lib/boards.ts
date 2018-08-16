@@ -1,74 +1,60 @@
-import { chanAxios, reverseHtmlSpecialChars } from '../utils';
-import { Board } from './board';
+import { AxiosInstance } from 'axios';
+import { reverseHtmlSpecialChars } from '../utils';
 
-export class BoardsBoard extends Board implements BoardInfo {
-  public title: string;
-  public maxCommentCharacters: number;
-  public description: string;
-  public nsfwBoard: boolean;
-  public archived: boolean;
-
-  public feature: BoardFeature;
-  public file: BoardFile;
-  public limitation: BoardLimitation;
-  public pagination: BoardPagination;
-
-  constructor(boardRaw: BoardsResponseBoard) {
-    super(boardRaw.board);
-
-    this.archived = !!boardRaw.is_archived;
-    this.description = reverseHtmlSpecialChars(boardRaw.meta_description);
-    this.maxCommentCharacters = boardRaw.max_comment_chars;
-    this.nsfwBoard = !boardRaw.ws_board;
-    this.title = boardRaw.title;
-
-    this.feature = {
-      codeTags: !!boardRaw.code_tags,
-      countryFlags: !!boardRaw.country_flags,
-      customSpoilers: boardRaw.custom_spoilers,
-      mathTags: !!boardRaw.math_tags,
-      sjisTags: !!boardRaw.sjis_tags,
-      spoilers: !!boardRaw.spoilers,
-      trollFlags: !!boardRaw.troll_flags,
-      userIds: !!boardRaw.user_ids,
-      webmAudio: !!boardRaw.webm_audio
-    };
-
-    this.file = {
-      imageLimit: boardRaw.image_limit,
-      maxFileSize: boardRaw.max_filesize,
-      maxWebmDuration: boardRaw.max_webm_duration,
-      maxWebmFileSize: boardRaw.max_webm_duration,
-      minImageHeight: boardRaw.min_image_height,
-      minImageWidth: boardRaw.min_image_width
-    };
-
-    this.limitation = {
-      bumpLimit: boardRaw.bump_limit,
-      cooldowns: boardRaw.cooldowns,
-      forcedAnon: !!boardRaw.forced_anon,
-      oekaki: !!boardRaw.oekaki,
-      requireSubject: !!boardRaw.require_subject,
-      textOnly: !!boardRaw.text_only
-    };
-
-    this.pagination = {
-      pages: boardRaw.pages,
-      threadPerPage: boardRaw.per_page
-    };
-  }
-}
-
-export const getBoards = async () => {
+export const getBoards = async (axios: AxiosInstance) => {
   // try {
   const {
     data: { boards: boardsRaw }
-  } = await chanAxios.get<BoardsResponse>('boards.json');
+  } = await axios.get<BoardsResponse>('boards.json');
 
-  const boards = new Map<string, BoardsBoard>();
+  const boards = new Map<string, Board>();
 
   boardsRaw.forEach(boardRaw => {
-    boards.set(boardRaw.board, new BoardsBoard(boardRaw));
+    const board: Board = {
+      archived: !!boardRaw.is_archived,
+      code: boardRaw.board,
+      description: reverseHtmlSpecialChars(boardRaw.meta_description),
+      maxCommentCharacters: boardRaw.max_comment_chars,
+      nsfwBoard: !boardRaw.ws_board,
+      title: boardRaw.title,
+
+      feature: {
+        codeTags: !!boardRaw.code_tags,
+        countryFlags: !!boardRaw.country_flags,
+        customSpoilers: boardRaw.custom_spoilers,
+        mathTags: !!boardRaw.math_tags,
+        sjisTags: !!boardRaw.sjis_tags,
+        spoilers: !!boardRaw.spoilers,
+        trollFlags: !!boardRaw.troll_flags,
+        userIds: !!boardRaw.user_ids,
+        webmAudio: !!boardRaw.webm_audio
+      },
+
+      limitation: {
+        bumpLimit: boardRaw.bump_limit,
+        cooldowns: boardRaw.cooldowns,
+        forcedAnon: !!boardRaw.forced_anon,
+        oekaki: !!boardRaw.oekaki,
+        requireSubject: !!boardRaw.require_subject,
+        textOnly: !!boardRaw.text_only,
+
+        file: {
+          imageLimit: boardRaw.image_limit,
+          maxFileSize: boardRaw.max_filesize,
+          maxWebmDuration: boardRaw.max_webm_duration,
+          maxWebmFileSize: boardRaw.max_webm_duration,
+          minImageHeight: boardRaw.min_image_height,
+          minImageWidth: boardRaw.min_image_width
+        }
+      },
+
+      pagination: {
+        pages: boardRaw.pages,
+        threadPerPage: boardRaw.per_page
+      }
+    };
+
+    boards.set(board.code, board);
   });
 
   return boards;
@@ -81,12 +67,12 @@ export const getBoards = async () => {
 // Interfaces
 //
 
-export interface BoardsResponse {
+interface BoardsResponse {
   boards: BoardsResponseBoard[];
   troll_flags: { [key: string]: string };
 }
 
-export interface BoardsResponseBoard {
+interface BoardsResponseBoard {
   blue: string;
   board: string;
   title: string;
@@ -119,13 +105,13 @@ export interface BoardsResponseBoard {
   math_tags?: number;
 }
 
-export interface BoardsResponseCooldowns {
+interface BoardsResponseCooldowns {
   threads: number;
   replies: number;
   images: number;
 }
 
-export interface BoardInfo {
+export interface Board {
   code: string;
   title: string;
   maxCommentCharacters: number;
@@ -134,7 +120,6 @@ export interface BoardInfo {
   archived: boolean;
 
   feature: BoardFeature;
-  file: BoardFile;
   limitation: BoardLimitation;
   pagination: BoardPagination;
 }
@@ -151,15 +136,6 @@ export interface BoardFeature {
   mathTags: boolean;
 }
 
-export interface BoardFile {
-  maxFileSize: number;
-  maxWebmFileSize: number;
-  maxWebmDuration: number;
-  imageLimit: number;
-  minImageWidth?: number;
-  minImageHeight?: number;
-}
-
 export interface BoardLimitation {
   bumpLimit: number;
   forcedAnon: boolean;
@@ -167,12 +143,22 @@ export interface BoardLimitation {
   textOnly: boolean;
   requireSubject: boolean;
   cooldowns: BoardCooldown;
+  file: BoardFile;
 }
 
 export interface BoardCooldown {
   threads: number;
   replies: number;
   images: number;
+}
+
+export interface BoardFile {
+  maxFileSize: number;
+  maxWebmFileSize: number;
+  maxWebmDuration: number;
+  imageLimit: number;
+  minImageWidth?: number;
+  minImageHeight?: number;
 }
 
 export interface BoardPagination {
