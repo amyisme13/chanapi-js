@@ -1,38 +1,27 @@
-import { chanAxios } from '../utils';
-import { Post, ThreadResponsePost } from './post';
+import { AxiosInstance } from 'axios';
+import { Post, rawToPost, ThreadResponsePost } from './post';
 
-export class Thread {
-  public boardCode: string;
-  public threadNumber: number;
+export const getThread = async (
+  axios: AxiosInstance,
+  board: string,
+  thread: number
+) => {
+  try {
+    const {
+      data: { posts: postsRaw }
+    } = await axios.get<ThreadResponse>(`${board}/thread/${thread}.json`);
 
-  constructor(boardCode: string, threadNumber: number) {
-    this.boardCode = boardCode;
-    this.threadNumber = threadNumber;
+    const posts = new Map<number, Post>();
+
+    postsRaw.forEach(postRaw => {
+      posts.set(postRaw.no, rawToPost(board, postRaw));
+    });
+
+    return posts;
+  } catch (err) {
+    throw err;
   }
-
-  public async getPosts() {
-    try {
-      const {
-        data: { posts: postsRaw }
-      } = await chanAxios.get<ThreadResponse>(
-        `${this.boardCode}/thread/${this.threadNumber}.json`
-      );
-
-      const posts = new Map<number, Post>();
-
-      postsRaw.forEach(postRaw => {
-        posts.set(
-          postRaw.no,
-          new Post(this.boardCode, this.threadNumber, postRaw)
-        );
-      });
-
-      return posts;
-    } catch (err) {
-      throw err;
-    }
-  }
-}
+};
 
 //
 // Interfaces

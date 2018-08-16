@@ -1,80 +1,67 @@
-export class Post {
-  public boardCode: string;
-  public threadNumber: number;
+export const rawToPost = (board: string, postRaw: ThreadResponsePost): Post => {
+  let file: PostFile | undefined;
+  if (postRaw.tim) {
+    file = {
+      deleted: !!postRaw.filedeleted,
+      extension: postRaw.ext,
+      height: postRaw.h,
+      md5: postRaw.md5,
+      name: postRaw.tim,
+      originalName: postRaw.filename,
+      size: postRaw.fsize,
+      url: `//i.4cdn.org/${board}/${postRaw.tim}${postRaw.ext}`,
+      width: postRaw.w,
 
-  constructor(
-    boardCode: string,
-    threadNumber: number,
-    postRaw: ThreadResponsePost
-  ) {
-    this.boardCode = boardCode;
-    this.threadNumber = threadNumber;
-
-    let file: PostFile | undefined;
-    if (postRaw.tim) {
-      file = {
-        deleted: !!postRaw.filedeleted,
-        extension: postRaw.ext,
-        height: postRaw.h,
-        md5: postRaw.md5,
-        name: postRaw.tim,
-        originalName: postRaw.filename,
-        size: postRaw.fsize,
-        url: `//i.4cdn.org/${boardCode}/${postRaw.tim}${postRaw.ext}`,
-        width: postRaw.w,
-
-        thumbnail: {
-          height: postRaw.tn_h,
-          url: `//i.4cdn.org/${boardCode}/${postRaw.tim}s${postRaw.ext}`,
-          width: postRaw.tn_w
-        }
-      };
-    }
-
-    return {
-      boardCode,
-      bumpLimit: postRaw.bumplimit,
-      capcodeReplies: postRaw.capcode_replies,
-      comment: postRaw.com,
-      imageLimit: postRaw.imagelimit,
-      imagesCount: postRaw.images,
-      modifiedAt: postRaw.last_modified
-        ? new Date(postRaw.last_modified * 1000)
-        : undefined,
-      number: postRaw.no,
-      omittedImages: postRaw.omitted_images,
-      omittedPosts: postRaw.omitted_posts,
-      postedAt: new Date(postRaw.time * 1000),
-      repliesCount: postRaw.replies,
-      replyTo: postRaw.resto,
-      semanticUrl: postRaw.semantic_url,
-      subject: postRaw.sub,
-      tag: postRaw.tag,
-      threadNumber,
-
-      file,
-      poster: {
-        capcode: postRaw.capcode,
-        countryCode: postRaw.country,
-        countryName: postRaw.country_name,
-        id: postRaw.id,
-        name: postRaw.name || 'Anonymous',
-        passBoughtIn: postRaw.since4pass,
-        tripcode: postRaw.trip
-      },
-      states: {
-        archived: !!postRaw.archived,
-        archivedAt: postRaw.archived_on
-          ? new Date(postRaw.archived_on * 1000)
-          : undefined,
-        closed: !!postRaw.closed,
-        customSpoiler: postRaw.custom_spoiler,
-        spoiler: !!postRaw.spoiler,
-        stickied: !!postRaw.sticky
+      thumbnail: {
+        height: postRaw.tn_h,
+        url: `//i.4cdn.org/${board}/${postRaw.tim}s${postRaw.ext}`,
+        width: postRaw.tn_w
       }
     };
   }
-}
+
+  return {
+    board,
+    bumpLimit: postRaw.bumplimit,
+    capcodeReplies: postRaw.capcode_replies,
+    comment: postRaw.com,
+    imageLimit: postRaw.imagelimit,
+    imagesCount: postRaw.images,
+    modifiedAt: postRaw.last_modified
+      ? new Date(postRaw.last_modified * 1000)
+      : undefined,
+    number: postRaw.no,
+    omittedImages: postRaw.omitted_images,
+    omittedPosts: postRaw.omitted_posts,
+    postedAt: new Date(postRaw.time * 1000),
+    repliesCount: postRaw.replies,
+    replyTo: postRaw.resto,
+    semanticUrl: postRaw.semantic_url,
+    subject: postRaw.sub,
+    tag: postRaw.tag,
+
+    file,
+    poster: {
+      capcode: postRaw.capcode,
+      countryCode: postRaw.country,
+      countryName: postRaw.country_name,
+      id: postRaw.id,
+      name: postRaw.name || 'Anonymous',
+      passBoughtIn: postRaw.since4pass,
+      tripcode: postRaw.trip
+    },
+    states: {
+      archived: !!postRaw.archived,
+      archivedAt: postRaw.archived_on
+        ? new Date(postRaw.archived_on * 1000)
+        : undefined,
+      closed: !!postRaw.closed,
+      customSpoiler: postRaw.custom_spoiler,
+      spoiler: !!postRaw.spoiler,
+      stickied: !!postRaw.sticky
+    }
+  };
+};
 
 //
 // Interfaces
@@ -123,6 +110,7 @@ export interface ThreadResponsePost {
 }
 
 export interface Post {
+  board: string;
   number: number;
   replyTo: number;
   postedAt: Date;
