@@ -1,9 +1,10 @@
 // tslint:disable:no-expression-statement
 import { test } from 'ava';
 import { chan } from './chan';
+import { chanAxios } from './utils';
 
 const board = 'g';
-const invalidBoard = 'asdasd';
+const invalidBoard = 'invalidBoard';
 
 const page = 1;
 const invalidPage = -1;
@@ -77,4 +78,11 @@ test('get with invalid board & valid thread arg should throws', async t => {
 
 test('get with invalid board & invalid thread arg should throws', async t => {
   await t.throws(chan.get({ board: invalidBoard, thread: invalidThread }));
+});
+
+test('get archived thread should not throw', async t => {
+  const { data: archivedThreads } = await chanAxios.get<number[]>(
+    `${board}/archive.json`
+  );
+  await t.notThrows(chan.get({ board, thread: archivedThreads[0] }));
 });
