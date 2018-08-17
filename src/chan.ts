@@ -6,7 +6,7 @@ import { getThread } from './lib/thread';
 import { getCatalog, getThreads } from './lib/threads';
 
 export class Chan {
-  private axios: AxiosInstance;
+  public axios: AxiosInstance;
 
   constructor(options: Option = {}) {
     this.axios = options.axios || chanAxios;
