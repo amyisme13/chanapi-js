@@ -1,6 +1,6 @@
 {
   "name": "chanapi-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Wrapper for 4chan read-only API",
   "main": "build/main/chan.js",
   "typings": "build/main/chan.d.ts",
