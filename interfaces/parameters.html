@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BoardsResponse | chanapi-js</title>
+	<title>Parameters | chanapi-js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="boardsresponse.html">BoardsResponse</a>
+					<a href="parameters.html">Parameters</a>
 				</li>
 			</ul>
-			<h1>Interface BoardsResponse</h1>
+			<h1>Interface Parameters</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">BoardsResponse</span>
+						<span class="target">Parameters</span>
 					</li>
 				</ul>
 			</section>
@@ -81,8 +81,9 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="boardsresponse.html#boards" class="tsd-kind-icon">boards</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="boardsresponse.html#troll_flags" class="tsd-kind-icon">troll_<wbr>flags</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="parameters.html#board" class="tsd-kind-icon">board</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="parameters.html#page" class="tsd-kind-icon">page</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="parameters.html#thread" class="tsd-kind-icon">thread</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,32 +92,34 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="boards" class="tsd-anchor"></a>
-					<h3>boards</h3>
-					<div class="tsd-signature tsd-kind-icon">boards<span class="tsd-signature-symbol">:</span> <a href="boardsresponseboard.html" class="tsd-signature-type">BoardsResponseBoard</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="board" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> board</h3>
+					<div class="tsd-signature tsd-kind-icon">board<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/bdc6f82/src/lib/boards.ts#L71">lib/boards.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/bdc6f82/src/chan.ts#L35">chan.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="troll_flags" class="tsd-anchor"></a>
-					<h3>troll_<wbr>flags</h3>
-					<div class="tsd-signature tsd-kind-icon">troll_<wbr>flags<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<a name="page" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> page</h3>
+					<div class="tsd-signature tsd-kind-icon">page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/bdc6f82/src/lib/boards.ts#L72">lib/boards.ts:72</a></li>
+							<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/bdc6f82/src/chan.ts#L36">chan.ts:36</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-index-signature">
-								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span></h5>
-							</li>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="thread" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> thread</h3>
+					<div class="tsd-signature tsd-kind-icon">thread<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/bdc6f82/src/chan.ts#L37">chan.ts:37</a></li>
 						</ul>
-					</div>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -133,13 +136,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-is-not-exported">
-						<a href="boardsresponse.html" class="tsd-kind-icon">Boards<wbr>Response</a>
+						<a href="parameters.html" class="tsd-kind-icon">Parameters</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="boardsresponse.html#boards" class="tsd-kind-icon">boards</a>
+								<a href="parameters.html#board" class="tsd-kind-icon">board</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="boardsresponse.html#troll_flags" class="tsd-kind-icon">troll_<wbr>flags</a>
+								<a href="parameters.html#page" class="tsd-kind-icon">page</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="parameters.html#thread" class="tsd-kind-icon">thread</a>
 							</li>
 						</ul>
 					</li>

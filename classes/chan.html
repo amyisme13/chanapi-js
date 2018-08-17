@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Thread | chanapi-js</title>
+	<title>Chan | chanapi-js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="thread.html">Thread</a>
+					<a href="chan.html">Chan</a>
 				</li>
 			</ul>
-			<h1>Class Thread</h1>
+			<h1>Class Chan</h1>
 		</div>
 	</div>
 </header>
@@ -70,12 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Thread</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="threadsthread.html" class="tsd-signature-type">ThreadsThread</a>
-							</li>
-						</ul>
+						<span class="target">Chan</span>
 					</li>
 				</ul>
 			</section>
@@ -86,20 +81,19 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="thread.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="chan.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="thread.html#boardcode" class="tsd-kind-icon">board<wbr>Code</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="thread.html#threadnumber" class="tsd-kind-icon">thread<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="chan.html#axios" class="tsd-kind-icon">axios</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="thread.html#getposts" class="tsd-kind-icon">get<wbr>Posts</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="chan.html#get" class="tsd-kind-icon">get</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,25 +105,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Thread<span class="tsd-signature-symbol">(</span>boardCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, threadNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="thread.html" class="tsd-signature-type">Thread</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Chan<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/option.html" class="tsd-signature-type">Option</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="chan.html" class="tsd-signature-type">Chan</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/886e5f3/src/lib/thread.ts#L6">lib/thread.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/bdc6f82/src/chan.ts#L9">chan.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>boardCode: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>threadNumber: <span class="tsd-signature-type">number</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/option.html" class="tsd-signature-type">Option</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="thread.html" class="tsd-signature-type">Thread</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="chan.html" class="tsd-signature-type">Chan</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -137,22 +128,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="boardcode" class="tsd-anchor"></a>
-					<h3>board<wbr>Code</h3>
-					<div class="tsd-signature tsd-kind-icon">board<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="axios" class="tsd-anchor"></a>
+					<h3>axios</h3>
+					<div class="tsd-signature tsd-kind-icon">axios<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">AxiosInstance</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/886e5f3/src/lib/thread.ts#L5">lib/thread.ts:5</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="threadnumber" class="tsd-anchor"></a>
-					<h3>thread<wbr>Number</h3>
-					<div class="tsd-signature tsd-kind-icon">thread<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/886e5f3/src/lib/thread.ts#L6">lib/thread.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/bdc6f82/src/chan.ts#L9">chan.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,19 +141,41 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getposts" class="tsd-anchor"></a>
-					<h3>get<wbr>Posts</h3>
+					<a name="get" class="tsd-anchor"></a>
+					<h3>get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Posts<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="post.html" class="tsd-signature-type">Post</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/board.html" class="tsd-signature-type">Board</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/post.html" class="tsd-signature-type">Post</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/boardthread.html" class="tsd-signature-type">BoardThread</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/886e5f3/src/lib/thread.ts#L13">lib/thread.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/amyisme13/chanapi-js/blob/bdc6f82/src/chan.ts#L15">chan.ts:15</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="post.html" class="tsd-signature-type">Post</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> __namedParameters: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>board<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>page<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>thread<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/board.html" class="tsd-signature-type">Board</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/post.html" class="tsd-signature-type">Post</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/boardthread.html" class="tsd-signature-type">BoardThread</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>
+							</h4>
 						</li>
 					</ul>
 				</section>
@@ -188,138 +191,24 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="board.html" class="tsd-kind-icon">Board</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="boardsboard.html" class="tsd-kind-icon">Boards<wbr>Board</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="post.html" class="tsd-kind-icon">Post</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="thread.html" class="tsd-kind-icon">Thread</a>
+						<a href="chan.html" class="tsd-kind-icon">Chan</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="thread.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="chan.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="thread.html#boardcode" class="tsd-kind-icon">board<wbr>Code</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="thread.html#threadnumber" class="tsd-kind-icon">thread<wbr>Number</a>
+								<a href="chan.html#axios" class="tsd-kind-icon">axios</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="thread.html#getposts" class="tsd-kind-icon">get<wbr>Posts</a>
+								<a href="chan.html#get" class="tsd-kind-icon">get</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="threadsthread.html" class="tsd-kind-icon">Threads<wbr>Thread</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardcatalogresponse.html" class="tsd-kind-icon">Board<wbr>Catalog<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardcatalogresponsethread.html" class="tsd-kind-icon">Board<wbr>Catalog<wbr>Response<wbr>Thread</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardcooldown.html" class="tsd-kind-icon">Board<wbr>Cooldown</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardfeature.html" class="tsd-kind-icon">Board<wbr>Feature</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardfile.html" class="tsd-kind-icon">Board<wbr>File</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardinfo.html" class="tsd-kind-icon">Board<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardlimitation.html" class="tsd-kind-icon">Board<wbr>Limitation</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardpageresponse.html" class="tsd-kind-icon">Board<wbr>Page<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardpageresponsepost.html" class="tsd-kind-icon">Board<wbr>Page<wbr>Response<wbr>Post</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardpageresponsethread.html" class="tsd-kind-icon">Board<wbr>Page<wbr>Response<wbr>Thread</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardpagination.html" class="tsd-kind-icon">Board<wbr>Pagination</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardsresponse.html" class="tsd-kind-icon">Boards<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardsresponseboard.html" class="tsd-kind-icon">Boards<wbr>Response<wbr>Board</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boardsresponsecooldowns.html" class="tsd-kind-icon">Boards<wbr>Response<wbr>Cooldowns</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/postfile.html" class="tsd-kind-icon">Post<wbr>File</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/postfilethumbnail.html" class="tsd-kind-icon">Post<wbr>File<wbr>Thumbnail</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/postposter.html" class="tsd-kind-icon">Post<wbr>Poster</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/poststates.html" class="tsd-kind-icon">Post<wbr>States</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/threadresponse.html" class="tsd-kind-icon">Thread<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/threadresponsepost.html" class="tsd-kind-icon">Thread<wbr>Response<wbr>Post</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#board" class="tsd-kind-icon">board</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#boardcode" class="tsd-kind-icon">board<wbr>Code</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#chanapibaseurl" class="tsd-kind-icon">chan<wbr>Api<wbr>Base<wbr>Url</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#chanaxios" class="tsd-kind-icon">chan<wbr>Axios</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#chanbaseurl" class="tsd-kind-icon">chan<wbr>Base<wbr>Url</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#invalidboard" class="tsd-kind-icon">invalid<wbr>Board</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#invalidboardcode" class="tsd-kind-icon">invalid<wbr>Board<wbr>Code</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#invalidthreadnumber" class="tsd-kind-icon">invalid<wbr>Thread<wbr>Number</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#threadnumber" class="tsd-kind-icon">thread<wbr>Number</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#double" class="tsd-kind-icon">double</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#getboards" class="tsd-kind-icon">get<wbr>Boards</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#power" class="tsd-kind-icon">power</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#reversehtmlspecialchars" class="tsd-kind-icon">reverse<wbr>Html<wbr>Special<wbr>Chars</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

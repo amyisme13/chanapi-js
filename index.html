@@ -64,8 +64,16 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="4chanapi">4chanapi</h1>
+				<h1 id="chanapi-js">chanapi-js</h1>
 				<p>Wrapper for 4chan read-only API</p>
+				<p>TODO:</p>
+				<ul>
+					<li>Use If-Modified-Since to abide by 4chan api rules</li>
+					<li>(maybe) limit request to 1 per second to abide by 4 chan api rules</li>
+					<li>Last-modified support</li>
+					<li>Better errors</li>
+					<li>Better documentation</li>
+				</ul>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -79,19 +87,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="classes/board.html" class="tsd-kind-icon">Board</a>
+						<a href="classes/chan.html" class="tsd-kind-icon">Chan</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/boardsboard.html" class="tsd-kind-icon">Boards<wbr>Board</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/post.html" class="tsd-kind-icon">Post</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/thread.html" class="tsd-kind-icon">Thread</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/threadsthread.html" class="tsd-kind-icon">Threads<wbr>Thread</a>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/board.html" class="tsd-kind-icon">Board</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/boardcatalogresponse.html" class="tsd-kind-icon">Board<wbr>Catalog<wbr>Response</a>
@@ -109,9 +108,6 @@
 						<a href="interfaces/boardfile.html" class="tsd-kind-icon">Board<wbr>File</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/boardinfo.html" class="tsd-kind-icon">Board<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/boardlimitation.html" class="tsd-kind-icon">Board<wbr>Limitation</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -127,13 +123,25 @@
 						<a href="interfaces/boardpagination.html" class="tsd-kind-icon">Board<wbr>Pagination</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/boardthread.html" class="tsd-kind-icon">Board<wbr>Thread</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="interfaces/boardsresponse.html" class="tsd-kind-icon">Boards<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-interface">
+					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="interfaces/boardsresponseboard.html" class="tsd-kind-icon">Boards<wbr>Response<wbr>Board</a>
 					</li>
-					<li class=" tsd-kind-interface">
+					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="interfaces/boardsresponsecooldowns.html" class="tsd-kind-icon">Boards<wbr>Response<wbr>Cooldowns</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-not-exported">
+						<a href="interfaces/option.html" class="tsd-kind-icon">Option</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-not-exported">
+						<a href="interfaces/parameters.html" class="tsd-kind-icon">Parameters</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/post.html" class="tsd-kind-icon">Post</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/postfile.html" class="tsd-kind-icon">Post<wbr>File</a>
@@ -156,8 +164,8 @@
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#board" class="tsd-kind-icon">board</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#boardcode" class="tsd-kind-icon">board<wbr>Code</a>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#chan" class="tsd-kind-icon">chan</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#chanapibaseurl" class="tsd-kind-icon">chan<wbr>Api<wbr>Base<wbr>Url</a>
@@ -172,13 +180,16 @@
 						<a href="globals.html#invalidboard" class="tsd-kind-icon">invalid<wbr>Board</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#invalidboardcode" class="tsd-kind-icon">invalid<wbr>Board<wbr>Code</a>
+						<a href="globals.html#invalidpage" class="tsd-kind-icon">invalid<wbr>Page</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#invalidthreadnumber" class="tsd-kind-icon">invalid<wbr>Thread<wbr>Number</a>
+						<a href="globals.html#invalidthread" class="tsd-kind-icon">invalid<wbr>Thread</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#threadnumber" class="tsd-kind-icon">thread<wbr>Number</a>
+						<a href="globals.html#page" class="tsd-kind-icon">page</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#thread" class="tsd-kind-icon">thread</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#double" class="tsd-kind-icon">double</a>
@@ -187,7 +198,22 @@
 						<a href="globals.html#getboards" class="tsd-kind-icon">get<wbr>Boards</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#getcatalog" class="tsd-kind-icon">get<wbr>Catalog</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getthread" class="tsd-kind-icon">get<wbr>Thread</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getthreads" class="tsd-kind-icon">get<wbr>Threads</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#power" class="tsd-kind-icon">power</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#rawtoboardthread" class="tsd-kind-icon">raw<wbr>ToBoard<wbr>Thread</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#rawtopost" class="tsd-kind-icon">raw<wbr>ToPost</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#reversehtmlspecialchars" class="tsd-kind-icon">reverse<wbr>Html<wbr>Special<wbr>Chars</a>
